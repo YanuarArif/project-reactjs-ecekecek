@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { addTodo, updateSearchTerm } from "../redux/actions";
 import { FaPlus, FaSearch } from "react-icons/fa";
 import { FilterButton } from "./FilterButton";
+import { TodoList } from "./TodoList";
 
 export const Todo = () => {
   const dispatch = useDispatch();
@@ -67,6 +68,7 @@ export const Todo = () => {
           </button>
         </div>
       </div>
+      <TodoList />
     </div>
   );
 };
