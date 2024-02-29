@@ -23,7 +23,7 @@ export const FilterButton = () => {
       <button
         onClick={() => dispatch(markAllCompleted())}
         className="text-sm px-2 py-1 bg-purple-500 text-white ml-2 rounded">
-        Mark All Complated
+        Selesai Semua
       </button>
     </div>
   );

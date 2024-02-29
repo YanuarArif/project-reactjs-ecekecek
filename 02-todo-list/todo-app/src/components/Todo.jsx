@@ -13,7 +13,8 @@ export const Todo = () => {
   const handleAddTodo = (text) => {
     dispatch(addTodo(text));
   };
-  const handleAddTodoClick = () => {
+  const handleAddTodoClick = (event) => {
+    event.preventDefault();
     if (newTodoText.trim() !== "") {
       handleAddTodo(newTodoText.trim());
       setNewTodoText("");
@@ -31,27 +32,27 @@ export const Todo = () => {
         Personal Todo App
       </h2>
       {/* input text and button */}
-      <div className="flex items-center mb-4">
-        <input
-          value={newTodoText}
-          onChange={(e) => setNewTodoText(e.target.value)}
-          type="text"
-          name="addTodoInput"
-          id="addTodoInput"
-          placeholder="Tambah Tugas"
-          className="flex-grow p-2 border-b-2 border-gray-300 focus:outline-none focus:border-blue-500"
-        />
-        <button
-          onClick={handleAddTodoClick}
-          className="ml-4 p-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-          <FaPlus />
-        </button>
+      <div>
+        <form className="flex items-center mb-4" onSubmit={handleAddTodoClick}>
+          <input
+            value={newTodoText}
+            onChange={(e) => setNewTodoText(e.target.value)}
+            type="text"
+            name="addTodoInput"
+            id="addTodoInput"
+            placeholder="Tambah Tugas"
+            className="flex-grow p-2 border-b-2 border-gray-300 focus:outline-none focus:border-blue-500"
+          />
+          <button className="ml-4 p-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+            <FaPlus />
+          </button>
+        </form>
       </div>
 
       {/* Filter and Search */}
-      <div className="flex justify-between">
+      <div className="flex justify-between items-end">
         <FilterButton />
-        <div className="flex items-center mb-4">
+        <div className="flex items-center">
           <input
             value={searchTerm}
             onChange={(e) => handleSearchChange(e.target.value)}
